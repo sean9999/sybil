@@ -1,0 +1,9 @@
+DIR="$(dirname $(readlink -f $0))"
+STORAGE_SIZE=32	# in Megs
+STORAGE_LOCATION=$DIR/../cryptstore
+MOUNTED_NAME=dianne
+CHALLENGES_ROOT=$DIR/../challenges
+DIARY_ROOT=/mnt/dianne/diary
+APP_NAME=ca.fukt.diary
+APP_VERSION=v0.0.1
+TMPROOT=/tmp/fukt/diary

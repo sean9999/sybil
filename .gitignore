@@ -1,0 +1,5 @@
+#	this is the raw storage for encrypted data
+cryptostore
+
+#	these may exist temporarily while new keys are added to Luks
+challenges/answer-*
