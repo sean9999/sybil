@@ -1,6 +1,6 @@
 name: sybil
 base: core18
-version: 'v0.0.1'
+version: 'v0.0.2'
 summary: Manage LUKS-encryped devices or folders with a Yubikey
 description: |
   Sybil allows you to enroll one or more yubikeys to authenticate a LUKS-encryped device.
@@ -12,20 +12,14 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 
 apps:
   sybil:
-    command: bin/sybil
-    plugs:
-      - hidraw
-      - raw-usb
-      - dbus
+    command: opt/fukt/sybil/sybil
 
 parts:
   sybil:
     plugin: dump
     source: source
-    organize: 
-      'scripts/sybil': bin/
-      scripts: /opt/fukt/
-  bat:
-    plugin: nil
+    organize:
+      "scripts": "/opt/fukt/sybil"
     stage-packages:
-      - bat
+      - yubikey-personalization
+

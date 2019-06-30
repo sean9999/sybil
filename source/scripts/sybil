@@ -7,8 +7,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-ROOT=$HOME/.local/opt/fukt/sybil/scripts
-cd $ROOT
+alias bat=cat
 
 case $1 in
 	"status")
@@ -30,7 +29,7 @@ case $1 in
 		./yubikey_info.sh
 		;;
 	"help")
-		/usr/bin/bat $0
+		bat $0
 		;;
 	*)
 		echo "unknown command"
