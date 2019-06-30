@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#	@title: Sybil
+#	@description: A utility for opening and closing a LUKS device with a yubi key
+
+##	strict mode
+set -euo pipefail
+IFS=$'\n\t'
+
+ROOT=$HOME/.local/opt/fukt/sybil/scripts
+cd $ROOT
+
+case $1 in
+	"status")
+		./is_mounted.sh
+		;;
+	"env")
+		./fyle=dump_vars.sh
+		;;
+	"mount")
+		sudo ./mount.sh
+		;;
+	"dismount")
+		sudo ./dismount.sh
+		;;
+	"diary")
+		./new_entry.sh
+		;;
+	"yubi")
+		./yubikey_info.sh
+		;;
+	"help")
+		/usr/bin/bat $0
+		;;
+	*)
+		echo "unknown command"
+		exit 5;
+		;;
+esac
+
+exit 0;
