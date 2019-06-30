@@ -1,0 +1,4 @@
+#!/bin/bash
+
+snapcraft try
+sudo snap try prime --devmode

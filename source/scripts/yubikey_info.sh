@@ -3,7 +3,7 @@
 DIR="$(dirname $(readlink -f $0))"
 source $DIR/vars.sh
 
-ykinfo -a | column -t
+ykinfo -a
 
 NICK=$(ykinfo -q -m)
 

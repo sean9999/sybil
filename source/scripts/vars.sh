@@ -1,4 +1,3 @@
-DIR="$(dirname $(readlink -f $0))"
 APP_NAME=sybil
 APP_FQDN=ca.fukt.${APP_NAME}
 APP_VERSION=v0.0.1
@@ -9,5 +8,3 @@ STORAGE_LOCATION=${STORAGE_ROOT}/${VAULT_NAME}
 MOUNTED_NAME=$VAULT_NAME
 CHALLENGES_ROOT=/opt/${APP_NAME}/challenges
 TMP_ROOT=/tmp/fukt/${APP_NAME}
-
-alias bat=cat

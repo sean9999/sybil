@@ -7,29 +7,29 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-alias bat=cat
+DIR="$(dirname $(readlink -f $0))"
 
 case $1 in
 	"status")
-		./is_mounted.sh
+		$DIR/is_mounted.sh
 		;;
 	"env")
-		./fyle=dump_vars.sh
+		$DIR/fyle=dump_vars.sh
 		;;
 	"mount")
-		sudo ./mount.sh
+		sudo $DIR/mount.sh
 		;;
 	"dismount")
-		sudo ./dismount.sh
+		sudo $DIR/dismount.sh
 		;;
 	"diary")
-		./new_entry.sh
+		$DIR/new_entry.sh
 		;;
 	"yubi")
-		./yubikey_info.sh
+		$DIR/yubikey_info.sh
 		;;
 	"help")
-		bat $0
+		cat $0
 		;;
 	*)
 		echo "unknown command"

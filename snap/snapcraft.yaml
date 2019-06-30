@@ -13,13 +13,20 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
   sybil:
     command: opt/fukt/sybil/sybil
+    plugs:
+      - hidraw
 
 parts:
   sybil:
+    build-environment:
+      - LANG: C.UTF-8
+      - LC_ALL: C.UTF-8
     plugin: dump
     source: source
     organize:
       "scripts": "/opt/fukt/sybil"
+    build-packages:
+      - locales-all
     stage-packages:
       - yubikey-personalization
 
