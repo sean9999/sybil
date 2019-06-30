@@ -1,4 +1,6 @@
 #!/bin/bash
 
+##	test new changes without doing a full build cycle
+
 snapcraft try
 sudo snap try prime --devmode
