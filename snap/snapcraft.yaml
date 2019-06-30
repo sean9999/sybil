@@ -1,17 +1,31 @@
-name: my-snap-name # you probably want to 'snapcraft register <name>'
-base: core18 # the base snap is the execution environment for this snap
-version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
-summary: Single-line elevator pitch for your amazing snap # 79 char long summary
+name: sybil
+base: core18
+version: 'v0.0.1'
+summary: Manage LUKS-encryped devices or folders with a Yubikey
 description: |
-  This is my-snap's description. You have a paragraph or two to tell the
-  most important story about your snap. Keep it under 100 words though,
-  we live in tweetspace and your description wants to look good in the snap
-  store.
-
-grade: devel # must be 'stable' to release into candidate/stable channels
+  Sybil allows you to enroll one or more yubikeys to authenticate a LUKS-encryped device.
+  It does so by saving a randomly-generated challenge to disk,
+  and the resultant HMAC challenge to a slot in the LUKS device.
+type: app
+grade: devel
 confinement: devmode # use 'strict' once you have the right plugs and slots
 
+apps:
+  sybil:
+    command: bin/sybil
+    plugs:
+      - hidraw
+      - raw-usb
+      - dbus
+
 parts:
-  my-part:
-    # See 'snapcraft plugins'
+  sybil:
+    plugin: dump
+    source: source
+    organize: 
+      'scripts/sybil': bin/
+      scripts: /opt/fukt/
+  bat:
     plugin: nil
+    stage-packages:
+      - bat
